@@ -39,19 +39,8 @@
     accessToken: 'pk.eyJ1IjoiY2JlcnRyYW4iLCJhIjoiY2praXlvNTExMWFoNDN3a3h4a2Zibnp6diJ9.199swM9Sv6jB2YB9wtvZWg'
 }).addTo(mymap);
 	
-var geojsonFeature = {
-    "type": "Feature",
-    "properties": {
-        "name": "Coors Field",
-        "amenity": "Baseball Stadium",
-        "popupContent": "This is where the Rockies play!"
-    },
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-104.99404, 39.75621]
-    }
-};
-	L.geoJSON(geojsonFeature).addTo(mymap);
+L.marker([51.5, -0.09]).addTo(mymap)
+		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 	
 	
 
