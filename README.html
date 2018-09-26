@@ -26,6 +26,8 @@
 <body>
   <div id="mapid" style="width: 1800px; height: 800px;"></div>
   
+//This section references an external javascript containing a .geojson script of the US states.
+<script src="https://github.com/SouthwestGeospatial/us-states-2/blob/master/us_states.js"></script>
 <script>
 
     
@@ -39,14 +41,11 @@
     accessToken: 'pk.eyJ1IjoiY2JlcnRyYW4iLCJhIjoiY2praXlvNTExMWFoNDN3a3h4a2Zibnp6diJ9.199swM9Sv6jB2YB9wtvZWg'
 }).addTo(mymap);
 	
-var states = [{
+	var statesLayer = L.statesLayer(states).addTo(mymap)
 	
-}];
-	
-L.geoJSON(states, {
-	}).addTo(map);
-
 </script>
+	
+
 
 
 </body>
