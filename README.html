@@ -43,6 +43,13 @@
 	
 	var states = L.geoJSON(states).addTo(mymap);
 	
+	var baseballIcon = L.icon({
+		iconUrl: 'baseball-marker.png',
+		iconSize: [32, 37],
+		iconAnchor: [16, 37],
+		popupAnchor: [0, -28]
+	});
+
 	var coorsLayer = L.geoJSON(coorsField, {
 
 		pointToLayer: function (feature, latlng) {
