@@ -43,6 +43,15 @@
 	
 	var states = L.geoJSON(states).addTo(mymap);
 	
+	var coorsLayer = L.geoJSON(coorsField, {
+
+		pointToLayer: function (feature, latlng) {
+			return L.marker(latlng, {icon: baseballIcon});
+		},
+
+		onEachFeature: onEachFeature
+	}).addTo(map);
+	
 </script>
 	
 
