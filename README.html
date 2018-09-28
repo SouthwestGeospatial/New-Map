@@ -31,12 +31,13 @@
 </style>
 
 <body>
+  <!--This establishes and difines the dimensions of the map on the web page-->
   <div id="mapid" style="width: 1800px; height: 800px;"></div>
   
 
 <script>
 
-    
+    //This sets the variable for the map and the initial coordinates and zoom on loading the pages
     var mymap = L.map('mapid').setView([39.0000, 260.5000], 5);
 
 	//This section adds the OpenStreetMaps tile layer and attribution credit
@@ -47,7 +48,7 @@
     accessToken: 'pk.eyJ1IjoiY2JlcnRyYW4iLCJhIjoiY2praXlvNTExMWFoNDN3a3h4a2Zibnp6diJ9.199swM9Sv6jB2YB9wtvZWg'
 }).addTo(mymap);
 	
-	
+//Creates a geoJSON layer and add it to a map,
 var states = L.geoJSON(states).addTo(mymap);
 	
 </script>
