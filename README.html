@@ -43,21 +43,11 @@
 	
 	var states = L.geoJSON(states).addTo(mymap);
 	
-	var baseballIcon = L.icon({
-		iconUrl: 'baseball-marker.png',
-		iconSize: [32, 37],
-		iconAnchor: [16, 37],
-		popupAnchor: [0, -28]
-	});
-
-	var coorsLayer = L.geoJSON(coorsField, {
-
-		pointToLayer: function (feature, latlng) {
-			return L.marker(latlng, {icon: baseballIcon});
-		},
-
-		onEachFeature: onEachFeature
-	}).addTo(map);
+	L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	]).addTo(mymap).bindPopup("I am a polygon.");
 	
 </script>
 	
