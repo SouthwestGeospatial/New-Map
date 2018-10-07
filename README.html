@@ -1,4 +1,4 @@
-# Open-Spatial-Data-Map
+ Open-Spatial-Data-Map
 <!––A spatially selectable map that returns the web addresses of counties, municipalities or organizations for the user selected area.-->
 <!DOCTYPE html>
 <html>
@@ -7,25 +7,23 @@
   <title>Open Spatial Data Map - United States</title>
   
   <meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css" />
-   
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
- <script type="text/javascript" src="./leaflet-ajax/leaflet.ajax.min.js"></script> 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<style>
+</style>
 
-
-<!-- This section references an external javascript containing a .geojson script of the US states -->
-<script src="https://github.com/SouthwestGeospatial/us-states-2/blob/master/us_states.js" type="text/javascript"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css" />
+		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+<script type="text/javascript" src="./leaflet-ajax/leaflet.ajax.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="./MovingMarker.js"></script>
+			
 	
 </head>
 	
-<style>
-</style>
+
 
 <body>
   <!--This establishes and difines the dimensions of the map on the web page-->
@@ -33,23 +31,24 @@
   
 
 <script>
-
     //This sets the variable for the map and the initial coordinates and zoom on loading the pages
     var mymap = L.map('mapid').setView([39.0000, 260.5000], 5);
 
-	//This section adds the OpenStreetMaps tile layer and attribution credit
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18, minZoom: 5,
-    id: 'mapbox.satellite',
-    accessToken: 'pk.eyJ1IjoiY2JlcnRyYW4iLCJhIjoiY2praXlvNTExMWFoNDN3a3h4a2Zibnp6diJ9.199swM9Sv6jB2YB9wtvZWg'
-}).addTo(mymap);
+    //This section adds the OpenStreetMaps tile layer and attribution credit
+    	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a 	
+
+href="https://www.mapbox.com/">Mapbox</a>',
+    	maxZoom: 18, minZoom: 5,
+    	id: 'mapbox.satellite',
+    	accessToken: 'pk.eyJ1IjoiY2JlcnRyYW4iLCJhIjoiY2praXlvNTExMWFoNDN3a3h4a2Zibnp6diJ9.199swM9Sv6jB2YB9wtvZWg'
+    	}).addTo(mymap);
 	
-var url="https://github.com/SouthwestGeospatial/us-states/blob/master/us_states.geojson"
+//Creates a geoJSON layer and add it to a map,
+var url="https://raw.githubusercontent.com/calvinmetcalf/leaflet-ajax/gh-pages/example/colleges.geojson"
 var geojsonLayer = new L.GeoJSON.AJAX(url);
 
-geojsonLayer.addTo(mymap);
-
+geojsonLayer.addTo(map);
 	
 </script>
 	
@@ -58,4 +57,3 @@ geojsonLayer.addTo(mymap);
 
 </body>
 </html>
-
